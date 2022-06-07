@@ -1,0 +1,27 @@
+{
+    "name": "felixaa/correlation-id",
+    "version": "v1.0",
+    "description": "Package offers functionality to add correlation_id to headers in Symfony project",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "ramsey/uuid": ">=4.0",
+        "symfony/monolog-bundle": ">=3.7"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Felixaa\\Logger\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felix-aa",
+            "email": "felix.ashu@cm.maviance.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
