@@ -36,11 +36,13 @@ class CorrelationIdProcessor implements LoggerInterface
             return $record;
         }
 
-        $correlationId = $request->headers->get(self::MAVIANCE_CORRELATION_ID) ?? Uuid::uuid4();
+        $correlationId = $request->headers->get(self::MAVIANCE_CORRELATION_ID) ?? null;
 
-        $record['extra'][self::CORRELATION_ID] = $correlationId;
-        $request->headers->set(self::MAVIANCE_CORRELATION_ID, $correlationId);
+        if($correlationId){
+            $record['context'][self::CORRELATION_ID] = $correlationId;
+        }
 
+        
         return $record;
     }
 }

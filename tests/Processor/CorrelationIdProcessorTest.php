@@ -34,8 +34,8 @@ class CorrelationIdProcessorTest extends TestCase
         $processor = new CorrelationIdProcessor($requestStack);
         $record = $processor([]); 
 
-        $this->assertArrayHasKey(LoggerInterface::CORRELATION_ID, $record['extra']);
-        $this->assertEquals($correlationId,  $record['extra'][LoggerInterface::CORRELATION_ID]);
+        $this->assertArrayHasKey(LoggerInterface::CORRELATION_ID, $record['context']);
+        $this->assertEquals($correlationId,  $record['context'][LoggerInterface::CORRELATION_ID]);
 
     }
 

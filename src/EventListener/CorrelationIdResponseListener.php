@@ -3,22 +3,14 @@
 namespace Felixaa\Logger\EventListener;
 
 use Felixaa\Logger\LoggerInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 
 class CorrelationIdResponseListener
 {
-    protected $requestStack;
-
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->requestStack = $requestStack;
-    }
-
     public function onKernelResponse(ResponseEvent $event)
     {
-        $request = $this->requestStack->getCurrentRequest();
+        $request = $event->getRequest();
 
         if (!$request) {
             return;

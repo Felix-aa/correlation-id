@@ -4,6 +4,7 @@ namespace Felixaa\Logger\Tests\Processor;
 
 use PHPUnit\Framework\TestCase;
 use Felixaa\Logger\Processor\EnviromentProcessor;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class EnviromentProcessorTest extends TestCase
 {
@@ -12,11 +13,16 @@ class EnviromentProcessorTest extends TestCase
      */
     public function shouldReturnEnviroment()
     {
-        $processor = new EnviromentProcessor("dev");
+        $Kernel  = $this->createMock(KernelInterface::class);
+        $Kernel->method('getEnvironment')
+            ->willReturn('dev');
+
+
+        $processor = new EnviromentProcessor($Kernel);
         $record = $processor([]);
 
-        $this->assertArrayHasKey('enviroment', $record['extra']);
-        $this->assertEquals('dev',$record['extra']['enviroment']);
+        $this->assertArrayHasKey('env', $record['extra']);
+        $this->assertEquals('dev',$record['extra']['env']);
     }
 
 

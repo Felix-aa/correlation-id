@@ -1,6 +1,6 @@
 {
     "name": "felixaa/correlation-id",
-    "version": "v1.0",
+    "version": "v2.0",
     "description": "Package offers functionality to add correlation_id to headers in Symfony project",
     "type": "library",
     "require": {

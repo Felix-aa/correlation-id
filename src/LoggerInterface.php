@@ -30,6 +30,7 @@ interface LoggerInterface
     const PAYLOAD          = 'payload';
     const HOSTNAME         = 'hostname';
     const MAVIANCE_CORRELATION_ID = 'x-correlation-id';
+    const CREATED_CORRELATION_ID = 'correlation Id created';
 
 
     public function  __invoke(array $record): array;
